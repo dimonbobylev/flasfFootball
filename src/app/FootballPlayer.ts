@@ -2,16 +2,16 @@ export class FootballPlayers
 {
   name: string;
   club: string;
-  gameNumber: number;
+  number: number;
   position: string;
   statistics: number;
 
 
-  constructor(name, club, gameNumber, position, statistics)
+  constructor(name, club, number, position, statistics)
   {
     this.name = name;
     this.club = club;
-    this.gameNumber = gameNumber;
+    this.number = number;
     this.position = position;
     this.statistics = statistics;
   }
