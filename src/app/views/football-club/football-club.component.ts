@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {RestService} from '../../Services/rest.service';
 
 @Component({
   selector: 'app-football-club',
@@ -7,11 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FootballClubComponent implements OnInit {
 
-  constructor() { }
+  constructor(private rs: RestService) { }
 
-  club = ['Barcelona', 'Juventus', 'PSG', 'PSV'];
+  club = {};
 
   ngOnInit(): void {
+    this.rs.readFootballClubs()
+      .subscribe
+      ((response) =>
+        {
+          this.club = response;
+          console.log('this.footballPlayers ' + this.club[0]);
+        },
+        (error) =>
+        {
+          console.log('No Data Found' + error);
+        }
+
+      );
   }
 
 }

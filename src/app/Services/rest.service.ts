@@ -20,4 +20,7 @@ export class RestService implements OnInit {
   readFootballPlayers() {
     return this.http.get<FootballPlayers[]>(this.FootballPlayersUrl);
   }
+  readFootballClubs() {
+    return this.http.get(this.FootballPlayersUrl);
+  }
 }
