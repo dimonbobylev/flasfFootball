@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {RestService} from '../../Services/rest.service';
 import {FootballPlayers} from '../../FootballPlayer';
+import {FuncService} from '../../Services/func.service';
+
 
 @Component({
   selector: 'app-football-players',
@@ -9,25 +11,25 @@ import {FootballPlayers} from '../../FootballPlayer';
 })
 export class FootballPlayersComponent implements OnInit {
 
-  constructor(private rs: RestService) { }
+  constructor(private rs: RestService, private get: FuncService) { }
 
   footballPlayers: FootballPlayers[] = [];
 
-  ngOnInit(): void {
-    // this.rs.readFootballPlayers()
-    //   .subscribe
-    //   (
-    //     (response) =>
-    //     {
-    //       this.footballPlayers = response[0]['football'];
-    //       // console.log('this.footballPlayers' + this.footballPlayers[0].club);
-    //     },
-    //     (error) =>
-    //     {
-    //       console.log('No Data Found' + error);
-    //     }
-    //
-    //   );
-  }
 
+  ngOnInit(): void {
+    this.rs.readFootballPlayers()
+      .subscribe
+      (
+        (response) =>
+        {
+          this.footballPlayers = response[0]['football'];
+          // this.countryCount.push(response[0]['football']);
+        },
+        (error) =>
+        {
+          console.log('No Data Found' + error);
+        }
+
+      );
+  }
 }

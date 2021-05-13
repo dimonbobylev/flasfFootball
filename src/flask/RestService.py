@@ -1,5 +1,6 @@
 from flask import Flask, jsonify;
 from flask_cors import CORS;
+from collections import Counter;
 # from flask_restful import Resource, Api;
 
 
@@ -12,6 +13,7 @@ footballPlayers = {
     {
         "name": "Messi",
         "club": "Barselona",
+        "country": "Argentina",
         "number": "10",
         "position": "striker",
         "statistics":"50"
@@ -19,6 +21,7 @@ footballPlayers = {
     {
         "name": "Ronaldo",
         "club": "Juventus",
+        "country": "Portugal",
         "number": "7",
         "position": "striker",
         "statistics":"33"
@@ -26,6 +29,7 @@ footballPlayers = {
     {
         "name": "Neymar",
         "club": "PSG",
+        "country": "Brazil",
         "number": "10",
         "position": "striker",
         "statistics":"25"
@@ -33,11 +37,24 @@ footballPlayers = {
         {
         "name": "Frankie de Jong",
         "club": "Barselona",
+        "country": "Netherlands",
         "number": "21",
         "position": "midfielder",
         "statistics":"5"
     },
+        {
+            "name": "van Dijk",
+            "club": "Liverpool",
+            "country": "Netherlands",
+            "number": "4",
+            "position": "defender",
+            "statistics":"3"
+        },
     ]
+}
+CountryDict = {
+"country": "",
+"kol": ""
 }
 
 
@@ -48,18 +65,36 @@ def index():
 @app.route("/footballReport/", methods = ['GET'])
 def FootballReport():
     global footballPlayers
+    return jsonify([footballPlayers])
+
+
+@app.route("/footballCountry/", methods = ['GET'])
+def FootballCountry():
+    global footballPlayers
+    CountryArray = []
     qwer = footballPlayers["football"]  # преобразование словаря в массив словарей
     i = len(qwer)                       # получение длины массива
-    footballclub = []
+    footballCountry = []
     for number in range(i):
-        footballclub.append(qwer[number]["club"]) # массив footballclub заполняется названиями клубов
-    clubNew = []
-    for m in set(footballclub):  # с помощию множества set отбрасываем повторяющиеся клубы
-        clubNew.append(m)       # массив clubNew заполняется уникальными названиями клубов из множества
-    print(clubNew)
+        footballCountry.append(qwer[number]["country"]) # массив footballCountry заполняется названиями стран
+    print(footballCountry)
+    a = dict(Counter(footballCountry))
+    print(a)
+#     print(a.items())
 
-    # return jsonify([footballPlayers])
-    return jsonify(clubNew)
+    CountryNew = []
+
+    for m in set(footballCountry):  # с помощию множества set отбрасываем повторяющиеся страны
+        CountryNew.append(m)       # массив clubNew заполняется уникальными названиями стран из множества
+#         CountryDict['country'] = m
+#         CountryDict['kol'] = 1
+#         print(CountryDict)
+#         CountryArray.append(CountryDict)
+#     print(CountryNew)
+#     print(CountryArray)
+
+#     return jsonify(CountryNew)
+    return jsonify(a)
 
 
 if __name__ == '__main__':

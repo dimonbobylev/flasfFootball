@@ -3,32 +3,46 @@
   <div class="section__content section__content--p30">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-lg-9">
+        <div class="col-lg-8">
           <h2 class="title-1 m-b-25">The best football players of Europe</h2>
           <div class="table-responsive table--no-card m-b-40">
             <table class="table table-borderless table-striped table-earning">
               <thead>
               <tr>
-                <th class="text-left">Name</th>
-                <th class="text-center">GameNumber</th>
-                <th class="text-center">Position</th>
-                <th class="text-center">Statistics</th>
+                <th class="text-left">№</th>
+                <th class="text-center">Name</th>
+<!--                <th class="text-center">GameNumber</th>-->
+<!--                <th class="text-center">Position</th>-->
+                <th class="text-center">Country</th>
                 <th class="text-right">Club</th>
-              </tr>
+               </tr>
               </thead>
               <tbody>
-<!--              <tr *ngFor="let footballPlayer of footballPlayers">-->
-<!--                <td class="text-left">{{footballPlayer.name}}</td>-->
-<!--                <td class="text-center">{{footballPlayer.number}}</td>-->
-<!--                <td class="text-center">{{footballPlayer.position}}</td>-->
-<!--                <td class="text-center">{{footballPlayer.statistics}}</td>-->
-<!--                <td class="text-right">{{footballPlayer.club}}</td>-->
-<!--              </tr>-->
+              <tr *ngFor="let footballPlayer of footballPlayers; let i=index">
+                <td class="text-left">{{i+1}}</td>
+                <td class="text-center">{{footballPlayer.name}}</td>
+                <td class="text-left">
+                  <a href="#">
+                    <div>
+                      <img src="{{get.getCountryFlag(footballPlayer.country)}}" />
+                      <span>{{footballPlayer.country}}</span>
+                    </div>
+                  </a>
+                </td>
+                <td class="text-left">
+                  <a href="#">
+                    <div>
+                      <img src="{{get.getClubLogo(footballPlayer.club)}}">
+                      <span>{{footballPlayer.club}}</span>
+                    </div>
+                  </a>
+                </td>
+              </tr>
               </tbody>
             </table>
           </div>
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-4">
           <h2 class="title-1 m-b-25">Top countries</h2>
           <div class="au-card au-card--bg-blue au-card-top-countries">
             <!--                <div class="au-card au-card&#45;&#45;bg-blue m-b-40">-->
@@ -36,38 +50,25 @@
               <div class="table-responsive">
                 <!--                    <table class="table table-top-countries">-->
                 <table class="table table-top-countries">
+                  <thead>
+                  <tr>
+                    <th class="text-left">№</th>
+                    <th class="text-center">Country</th>
+                    <th class="text-right">Count</th>
+                  </tr>
+                  </thead>
                   <tbody>
-                  <tr>
-                    <td>United States</td>
-                    <td class="text-right">$119,366.96</td>
-                  </tr>
-                  <tr>
-                    <td>Australia</td>
-                    <td class="text-right">$70,261.65</td>
-                  </tr>
-                  <tr>
-                    <td>United Kingdom</td>
-                    <td class="text-right">$46,399.22</td>
-                  </tr>
-                  <tr>
-                    <td>Turkey</td>
-                    <td class="text-right">$35,364.90</td>
-                  </tr>
-                  <tr>
-                    <td>Germany</td>
-                    <td class="text-right">$20,366.96</td>
-                  </tr>
-                  <tr>
-                    <td>France</td>
-                    <td class="text-right">$10,366.96</td>
-                  </tr>
-                  <tr>
-                    <td>Australia</td>
-                    <td class="text-right">$5,366.96</td>
-                  </tr>
-                  <tr>
-                    <td>Italy</td>
-                    <td class="text-right">$1639.32</td>
+                  <tr *ngFor="let footballPlayer of footballPlayers; let i=index">
+                    <td class="text-left">{{i+1}}</td>
+                    <td class="text-left">
+                      <a href="#">
+                        <div>
+                          <img src="{{get.getCountryFlag(footballPlayer.country)}}" />
+                          <span>{{footballPlayer.country}}</span>
+                        </div>
+                      </a>
+                    </td>
+                    <td class="text-center">1</td>
                   </tr>
                   </tbody>
                 </table>

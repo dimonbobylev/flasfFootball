@@ -10,15 +10,15 @@ export class FootballClubComponent implements OnInit {
 
   constructor(private rs: RestService) { }
 
-  club = {};
+  countrys = {};
 
   ngOnInit(): void {
-    this.rs.readFootballClubs()
+    this.rs.readFootballCountry()
       .subscribe
       ((response) =>
         {
-          this.club = response;
-          console.log('this.footballPlayers ' + this.club[0]);
+          this.countrys = response;
+          console.log('this.footballPlayers ' + this.countrys);
         },
         (error) =>
         {
