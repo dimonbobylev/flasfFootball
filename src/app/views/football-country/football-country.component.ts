@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {RestService} from '../../Services/rest.service';
 import {FootballCountry} from '../../FootballCountry';
 import {FuncService} from '../../Services/func.service';
@@ -10,23 +10,20 @@ import {FuncService} from '../../Services/func.service';
 })
 export class FootballCountryComponent implements OnInit {
 
-  constructor(private rs: RestService, private get: FuncService) { }
+  constructor(private rs: RestService, private getc: FuncService) {
+  }
 
   countrys: FootballCountry[] = [];
 
   ngOnInit(): void {
     this.rs.readFootballCountry()
       .subscribe
-      ((response) =>
-        {
+      ((response) => {
           this.countrys = response[0]['countryMass'];
-          // console.log(this.countrys);
         },
-        (error) =>
-        {
+        (error) => {
           console.log('No Data Found' + error);
         }
-
       );
   }
 

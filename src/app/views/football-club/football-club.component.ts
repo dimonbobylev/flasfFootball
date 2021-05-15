@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {RestService} from '../../Services/rest.service';
+import {Component, OnInit} from '@angular/core';
+
 
 @Component({
   selector: 'app-football-club',
@@ -8,7 +8,8 @@ import {RestService} from '../../Services/rest.service';
 })
 export class FootballClubComponent implements OnInit {
 
-  constructor(private rs: RestService) { }
+  constructor() {
+  }
 
 
   ngOnInit(): void {
