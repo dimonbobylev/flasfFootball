@@ -10,7 +10,7 @@
               <thead>
               <tr>
                 <th class="text-left">№</th>
-                <th class="text-center">Name</th>
+                <th class="text-left">Name</th>
 <!--                <th class="text-center">GameNumber</th>-->
 <!--                <th class="text-center">Position</th>-->
                 <th class="text-center">Country</th>
@@ -20,7 +20,7 @@
               <tbody>
               <tr *ngFor="let footballPlayer of footballPlayers; let i=index">
                 <td class="text-left">{{i+1}}</td>
-                <td class="text-center">{{footballPlayer.name}}</td>
+                <td class="text-left">{{footballPlayer.name}}</td>
                 <td class="text-left">
                   <a href="#">
                     <div>
@@ -43,38 +43,7 @@
           </div>
         </div>
         <div class="col-lg-4">
-          <h2 class="title-1 m-b-25">Top countries</h2>
-          <div class="au-card au-card--bg-blue au-card-top-countries">
-            <!--                <div class="au-card au-card&#45;&#45;bg-blue m-b-40">-->
-            <div class="au-card-inner">
-              <div class="table-responsive">
-                <!--                    <table class="table table-top-countries">-->
-                <table class="table table-top-countries">
-                  <thead>
-                  <tr>
-                    <th class="text-left">№</th>
-                    <th class="text-center">Country</th>
-                    <th class="text-right">Count</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr *ngFor="let footballPlayer of footballPlayers; let i=index">
-                    <td class="text-left">{{i+1}}</td>
-                    <td class="text-left">
-                      <a href="#">
-                        <div>
-                          <img src="{{get.getCountryFlag(footballPlayer.country)}}" />
-                          <span>{{footballPlayer.country}}</span>
-                        </div>
-                      </a>
-                    </td>
-                    <td class="text-center">1</td>
-                  </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
+            <app-football-country></app-football-country>
         </div>
       </div>
     </div>

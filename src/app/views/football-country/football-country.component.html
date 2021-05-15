@@ -1,0 +1,32 @@
+<h2 class="title-1 m-b-25">Top countries</h2>
+<div class="au-card au-card--bg-blue au-card-top-countries">
+  <!--                <div class="au-card au-card&#45;&#45;bg-blue m-b-40">-->
+  <div class="au-card-inner">
+    <div class="table-responsive">
+      <!--                    <table class="table table-top-countries">-->
+      <table class="table table-top-countries">
+        <thead>
+        <tr>
+          <th class="text-left">№</th>
+          <th class="text-center">Country</th>
+          <th class="text-right">Count</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let country of countrys; let i=index">
+          <td class="text-left">{{i+1}}</td>
+          <td class="text-left">
+            <a href="#">
+              <div>
+                <img src="{{get.getCountryFlag(country.country)}}" />
+                <span>{{country.country}}</span>
+              </div>
+            </a>
+          </td>
+          <td class="text-center">{{country.kol}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

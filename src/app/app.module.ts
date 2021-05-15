@@ -6,12 +6,14 @@ import {HttpClientModule} from '@angular/common/http';
 import {RestService} from './Services/rest.service';
 import { FootballClubComponent } from './views/football-club/football-club.component';
 import { FootballPlayersComponent } from './views/football-players/football-players.component';
+import { FootballCountryComponent } from './views/football-country/football-country.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FootballClubComponent,
-    FootballPlayersComponent
+    FootballPlayersComponent,
+    FootballCountryComponent
   ],
   imports: [
     BrowserModule,

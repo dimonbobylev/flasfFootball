@@ -52,10 +52,6 @@ footballPlayers = {
         },
     ]
 }
-CountryDict = {
-"country": "",
-"kol": ""
-}
 
 
 @app.route("/", methods=['GET'])
@@ -70,31 +66,27 @@ def FootballReport():
 
 @app.route("/footballCountry/", methods = ['GET'])
 def FootballCountry():
+    CountryDict = {
+        "countryMass": [ ]
+    }
     global footballPlayers
-    CountryArray = []
     qwer = footballPlayers["football"]  # преобразование словаря в массив словарей
     i = len(qwer)                       # получение длины массива
     footballCountry = []
     for number in range(i):
         footballCountry.append(qwer[number]["country"]) # массив footballCountry заполняется названиями стран
-    print(footballCountry)
-    a = dict(Counter(footballCountry))
-    print(a)
-#     print(a.items())
+#     print(footballCountry)
+    a = dict(Counter(footballCountry))    # a - словарь, ключи - названия стран, значение - количество повторений
 
-    CountryNew = []
+    for key,value in a.items() :
+        oneCountry = {
+            "country": key,
+            "kol": value
+        }
+        CountryDict["countryMass"].append(oneCountry)
 
-    for m in set(footballCountry):  # с помощию множества set отбрасываем повторяющиеся страны
-        CountryNew.append(m)       # массив clubNew заполняется уникальными названиями стран из множества
-#         CountryDict['country'] = m
-#         CountryDict['kol'] = 1
-#         print(CountryDict)
-#         CountryArray.append(CountryDict)
-#     print(CountryNew)
-#     print(CountryArray)
-
-#     return jsonify(CountryNew)
-    return jsonify(a)
+    print(CountryDict["countryMass"])
+    return jsonify([CountryDict])
 
 
 if __name__ == '__main__':
