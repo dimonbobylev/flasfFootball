@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {RestService} from '../../Services/rest.service';
 import {FootballPlayers} from '../../FootballPlayer';
 import {FuncService} from '../../Services/func.service';
@@ -11,11 +11,12 @@ import {FuncService} from '../../Services/func.service';
 })
 export class FootballPlayersComponent implements OnInit {
 
+  @Input() search: string;
   constructor(private rs: RestService, private getFlag: FuncService) {
   }
 
   footballPlayers: FootballPlayers[] = [];
-
+  // search = '';
 
   ngOnInit(): void {
     this.rs.readFootballPlayers()
