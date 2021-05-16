@@ -1750,7 +1750,7 @@ section {
 }
 
 .navbar-mobile-sub__list {
-    display: none;
+    /*display: none;*/
     padding-left: 30px;
     background: #fff;
 }

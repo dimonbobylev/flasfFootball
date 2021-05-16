@@ -9,6 +9,7 @@ import { FootballPlayersComponent } from './views/football-players/football-play
 import { FootballCountryComponent } from './views/football-country/football-country.component';
 import {FormsModule} from '@angular/forms';
 import { FilterPipe } from './pipes/filter.pipe';
+import { IfNotDirective } from './directives/if-not.directive';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FilterPipe } from './pipes/filter.pipe';
     FootballClubComponent,
     FootballPlayersComponent,
     FootballCountryComponent,
-    FilterPipe
+    FilterPipe,
+    IfNotDirective
   ],
   imports: [
     BrowserModule,

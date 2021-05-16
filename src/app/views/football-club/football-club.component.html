@@ -4,11 +4,31 @@
     <ul class="list-unstyled navbar__list">
       <li class="active has-sub">
         <a class="js-arrow" href="#">
-          <i class="fas fa-tachometer-alt"></i>Football</a>
+          <i class="fas fa-tachometer-alt"></i><button (click)="isVisibleFootball = !isVisibleFootball" class="btn-link">Football</button></a>
+            <div *appIfNot="!isVisibleFootball">
+              <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                <li>
+                  <a href="#">Top Football Player</a>
+                </li>
+                <li>
+                  <a href="#">Top Football Club</a>
+                </li>
+              </ul>
+            </div>
       </li>
       <li class="active has-sub">
         <a class="js-arrow" href="#">
-          <i class="fas fa-tachometer-alt"></i>Hockey</a>
+          <i class="fas fa-tachometer-alt"></i><button (click)="isVisibleHockey = !isVisibleHockey" class="btn-link"></button>Hockey</a>
+<!--        <div *appIfNot="!isVisibleHockey">-->
+          <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+            <li>
+              <a href="#">Top Hockey Player</a>
+            </li>
+            <li>
+              <a href="#">Top Hockey Club</a>
+            </li>
+          </ul>
+<!--        </div>-->
       </li>
     </ul>
   </nav>

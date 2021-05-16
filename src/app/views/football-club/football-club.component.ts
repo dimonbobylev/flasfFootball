@@ -10,9 +10,10 @@ export class FootballClubComponent implements OnInit {
 
   constructor() {
   }
-
+  isVisibleFootball = false;
+  isVisibleHockey = false;
 
   ngOnInit(): void {
-  }
 
+  }
 }
