@@ -11,7 +11,20 @@ export class AppComponent implements OnInit {
   constructor() {
   }
   search = '';
+  isVisibleFootballClub = false;
+  isVisibleFootballPlayers = true;
 
   ngOnInit(): void {
+  }
+
+
+  public onChange(isAdd: boolean): void {
+    if (isAdd) {
+      this.isVisibleFootballClub = false;
+      this.isVisibleFootballPlayers = true;
+    } else {
+      this.isVisibleFootballClub = true;
+      this.isVisibleFootballPlayers = false;
+    }
   }
 }

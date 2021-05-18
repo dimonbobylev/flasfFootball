@@ -1,4 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {RestService} from '../../Services/rest.service';
+import {FuncService} from '../../Services/func.service';
+import {FootballClubs} from '../../FootballClubs';
 
 
 @Component({
@@ -8,12 +11,22 @@ import {Component, OnInit} from '@angular/core';
 })
 export class FootballClubComponent implements OnInit {
 
-  constructor() {
-  }
-  isVisibleFootball = false;
-  isVisibleHockey = false;
+  @Input() search: string;
+  constructor(private rs: RestService, private getFlag: FuncService) { }
+
+  footballClubs: FootballClubs[] = [];
 
   ngOnInit(): void {
-
+    this.rs.readFootballClubs()
+      .subscribe
+      (
+        (response) => {
+          this.footballClubs = response[0]['clubs'];
+        },
+        (error) => {
+          console.log('No Data Found' + error);
+        }
+      );
   }
+
 }

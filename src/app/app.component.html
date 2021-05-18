@@ -5,10 +5,9 @@
         <img src="assets/icon/logo.png" alt="Cool Admin" />
       </a>
     </div>
-    <app-football-club></app-football-club>
+    <app-menu (buttonClick)="onChange($event)"></app-menu>
   </aside>
   <!-- END MENU SIDEBAR-->
-
   <!-- PAGE CONTAINER-->
   <div class="page-container">
     <!-- HEADER DESKTOP-->
@@ -27,7 +26,8 @@
       </div>
     </header>
     <!-- HEADER DESKTOP-->
-    <app-football-players [search]="search"></app-football-players> <!-- Передача данных в app-football-players-->
+    <app-football-players *ngIf="isVisibleFootballPlayers" [search]="search"></app-football-players> <!-- Передача данных в app-football-players-->
+    <app-football-club *ngIf="isVisibleFootballClub" [search]="search"></app-football-club>
     <!-- END PAGE CONTAINER-->
   </div>
 

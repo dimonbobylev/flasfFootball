@@ -1,0 +1,36 @@
+<!-- MENU SIDEBAR-->
+<div class="menu-sidebar__content js-scrollbar1">
+  <nav class="navbar-sidebar">
+    <ul class="list-unstyled navbar__list">
+      <li class="active has-sub">
+        <a class="js-arrow" href="#">
+          <i class="fas fa-tachometer-alt"></i><button (click)="isVisibleFootball = !isVisibleFootball" class="btn-link">Football</button></a>
+            <div *appIfNot="!isVisibleFootball">
+              <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                <li>
+                  <a href="#"><button class="btn-link"(click)="changeCategory(true)">Top Football Player</button></a>
+                </li>
+                <li>
+                  <a href="#"><button class="btn-link" (click)="changeCategory(false)">Top Football Club</button></a>
+                </li>
+              </ul>
+            </div>
+      </li>
+      <li class="active has-sub">
+        <a class="js-arrow" href="#">
+          <i class="fas fa-tachometer-alt"></i><button (click)="isVisibleHockey = !isVisibleHockey" class="btn-link">Hockey</button></a>
+        <div *appIfNot="!isVisibleHockey">
+          <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+            <li>
+              <a href="#"><button class="btn-link">Top Hockey Player</button></a>
+            </li>
+            <li>
+              <a href="#"><button class="btn-link">Top Hockey Club</button></a>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </nav>
+</div>
+<!-- END MENU SIDEBAR-->

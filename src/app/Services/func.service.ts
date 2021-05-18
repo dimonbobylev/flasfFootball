@@ -13,6 +13,7 @@ export class FuncService {
 
 
   getClubLogo(clubName): string {
+    this.clubLogo = "";
     if (clubName == 'Barselona') {
       this.clubLogo = 'https://football-fun.ru/uploads/teams/barselona-image-_x28.png';
     }
@@ -25,10 +26,30 @@ export class FuncService {
     if (clubName == 'Liverpool') {
       this.clubLogo = 'https://football-fun.ru/uploads/teams/liverpul-image-_x28.png';
     }
+    if (clubName == 'Manchester City') {
+      this.clubLogo = 'https://football-fun.ru/uploads/teams/manchester-siti-image-_x28.png';
+    }
+    if (clubName == 'Real Madrid') {
+      this.clubLogo = 'https://football-fun.ru/uploads/teams/real-madrid-1-image-_x28.png';
+    }
+
+    if (clubName == 'Bayern') {
+      this.clubLogo = 'https://football-fun.ru/uploads/teams/bavariya-image-_x28.png';
+    }
+    if (clubName == 'Arsenal') {
+      this.clubLogo = 'https://football-fun.ru/uploads/teams/arsenal-image-_x28.png';
+    }
+    if (clubName == 'Manchester United') {
+      this.clubLogo = 'https://football-fun.ru/uploads/teams/manchester-yunayted-image-_x28.png';
+    }
+    if (clubName == 'Atletico') {
+      this.clubLogo = 'https://football-fun.ru/uploads/teams/atletiko-madrid-image-_x28.png';
+    }
     return this.clubLogo;
   }
 
   getCountryFlag(CountryFlag): string {
+    this.CountryFlag = "";
     if (CountryFlag == 'Brazil') {
       this.CountryFlag = 'https://football-fun.ru/uploads/1/countries/flags/brazil-image-_x28.png';
     }
@@ -40,6 +61,21 @@ export class FuncService {
     }
     if (CountryFlag == 'Portugal') {
       this.CountryFlag = "https://football-fun.ru/uploads/1/countries/flags/portugal-image-_x28.png";
+    }
+    if (CountryFlag == 'England') {
+      this.CountryFlag = "https://football-fun.ru/uploads/1/countries/flags/england-image-_x28.png";
+    }
+    if (CountryFlag == 'Spain') {
+      this.CountryFlag = "https://football-fun.ru/uploads/1/countries/flags/spain-image-_x28.png";
+    }
+    if (CountryFlag == 'Germany') {
+      this.CountryFlag = "https://football-fun.ru/uploads/1/countries/flags/germany-image-_x28.png";
+    }
+    if (CountryFlag == 'France') {
+      this.CountryFlag = "https://football-fun.ru/uploads/1/countries/flags/france-image-_x28.png";
+    }
+    if (CountryFlag == 'Italy') {
+      this.CountryFlag = "https://football-fun.ru/uploads/1/countries/flags/italy-image-_x28.png";
     }
     return this.CountryFlag;
   }

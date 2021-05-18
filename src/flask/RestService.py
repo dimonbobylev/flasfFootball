@@ -1,66 +1,14 @@
 from flask import Flask, jsonify;
 from flask_cors import CORS;
 from collections import Counter;
-from collections import OrderedDict
+from collections import OrderedDict;
+import football;            # подключаем файл football.py
 # from flask_restful import Resource, Api;
 
 
 app = Flask(__name__)
 # api=Api(app)
 CORS(app)
-
-footballPlayers = {
-    "football": [
-    {
-        "name": "Messi",
-        "club": "Barselona",
-        "country": "Argentina",
-        "number": "10",
-        "position": "striker",
-        "statistics":"50"
-    },
-    {
-        "name": "Ronaldo",
-        "club": "Juventus",
-        "country": "Portugal",
-        "number": "7",
-        "position": "striker",
-        "statistics":"33"
-    },
-    {
-        "name": "Neymar",
-        "club": "PSG",
-        "country": "Brazil",
-        "number": "10",
-        "position": "striker",
-        "statistics":"25"
-    },
-        {
-        "name": "Frankie de Jong",
-        "club": "Barselona",
-        "country": "Netherlands",
-        "number": "21",
-        "position": "midfielder",
-        "statistics":"5"
-    },
-        {
-            "name": "van Dijk",
-            "club": "Liverpool",
-            "country": "Netherlands",
-            "number": "4",
-            "position": "defender",
-            "statistics":"3"
-        },
-        {
-            "name": "Di Maria",
-            "club": "PSG",
-            "country": "Argentina",
-            "number": "11",
-            "position": "striker",
-            "statistics":"15"
-        },
-    ]
-}
 
 
 @app.route("/", methods=['GET'])
@@ -69,8 +17,12 @@ def index():
 
 @app.route("/footballReport/", methods = ['GET'])
 def FootballReport():
-    global footballPlayers
-    return jsonify([footballPlayers])
+#     global footballPlayers
+    return jsonify([football.footballPlayers])
+
+@app.route("/footballClub/", methods = ['GET'])
+def FootballClub():
+    return jsonify([football.footballClubs])   # возвращаем словарь footballClubs из файла football.py
 
 
 @app.route("/footballCountry/", methods = ['GET'])
@@ -78,8 +30,8 @@ def FootballCountry():
     CountryDict = {
         "countryMass": [ ]
     }
-    global footballPlayers
-    qwer = footballPlayers["football"]  # преобразование словаря в массив словарей
+#     global footballPlayers
+    qwer = football.footballPlayers["football"]  # преобразование словаря в массив словарей
     i = len(qwer)                       # получение длины массива
     footballCountry = []
     for number in range(i):
