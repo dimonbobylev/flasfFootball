@@ -12,6 +12,7 @@ import { IfNotDirective } from './directives/if-not.directive';
 import {MenuComponent} from './views/menu/menu.component';
 import { FootballClubComponent } from './views/football-club/football-club.component';
 import { FilterClubsPipe } from './pipes/filter-clubs.pipe';
+import { FootballCountryTopComponent } from './views/football-country-top/football-country-top.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { FilterClubsPipe } from './pipes/filter-clubs.pipe';
     FilterPipe,
     IfNotDirective,
     FootballClubComponent,
-    FilterClubsPipe
+    FilterClubsPipe,
+    FootballCountryTopComponent
   ],
   imports: [
     BrowserModule,

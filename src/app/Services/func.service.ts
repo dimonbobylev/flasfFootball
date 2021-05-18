@@ -14,7 +14,7 @@ export class FuncService {
 
   getClubLogo(clubName): string {
     this.clubLogo = "";
-    if (clubName == 'Barselona') {
+    if (clubName == 'Barcelona') {
       this.clubLogo = 'https://football-fun.ru/uploads/teams/barselona-image-_x28.png';
     }
     if (clubName == 'Juventus') {
@@ -63,19 +63,19 @@ export class FuncService {
       this.CountryFlag = "https://football-fun.ru/uploads/1/countries/flags/portugal-image-_x28.png";
     }
     if (CountryFlag == 'England') {
-      this.CountryFlag = "https://football-fun.ru/uploads/1/countries/flags/england-image-_x28.png";
+      this.CountryFlag = "assets/icon/flag-of-england.jpg";
     }
     if (CountryFlag == 'Spain') {
-      this.CountryFlag = "https://football-fun.ru/uploads/1/countries/flags/spain-image-_x28.png";
+      this.CountryFlag = "assets/icon/spain-flag.png";
     }
     if (CountryFlag == 'Germany') {
       this.CountryFlag = "https://football-fun.ru/uploads/1/countries/flags/germany-image-_x28.png";
     }
     if (CountryFlag == 'France') {
-      this.CountryFlag = "https://football-fun.ru/uploads/1/countries/flags/france-image-_x28.png";
+      this.CountryFlag = "assets/icon/flag-franczii.jpg";
     }
     if (CountryFlag == 'Italy') {
-      this.CountryFlag = "https://football-fun.ru/uploads/1/countries/flags/italy-image-_x28.png";
+      this.CountryFlag = "assets/icon/Flag_of_the_Italian.png";
     }
     return this.CountryFlag;
   }

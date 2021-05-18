@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 
 @Component({
@@ -8,7 +8,9 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  @Output() buttonClick = new EventEmitter<boolean>();
+  // @Output() buttonClick = new EventEmitter<boolean>();
+  @Input() choice: string;
+  @Output() buttonClick = new EventEmitter();
 
   constructor() {
   }
@@ -19,7 +21,7 @@ export class MenuComponent implements OnInit {
 
   }
 
-  public changeCategory(change: boolean): void {
-    this.buttonClick.emit(change);
-  }
+  // public changeCategory(change: boolean): void {
+  //   this.buttonClick.emit(change);
+  // }
 }

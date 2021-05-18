@@ -19,28 +19,26 @@
               </tr>
               </thead>
               <tbody>
-              <tr *ngFor="let footballClub of footballClubs | filterClubs: search; let i=index">
-                <td class="text-left">{{footballClub.id}}</td>
+              <tr>
+                <td class="text-left">id</td>
                 <td class="text-left">
                   <a href="#">
                     <div>
-                      <img src="{{getFlag.getClubLogo(footballClub.club)}}">
-                      <span> {{footballClub.club}}</span>
+                      <span>8</span>
                     </div>
                   </a>
                 </td>
                 <td class="text-left">
                   <a href="#">
                     <div>
-                      <img src="{{getFlag.getCountryFlag(footballClub.country)}}" height="50" width="30">
-                      <span> {{footballClub.country}}</span>
+                      <span>7</span>
                     </div>
                   </a>
                 </td>
                 <td class="text-center"></td>
                 <td class="text-center"></td>
-                <td class="text-center">{{footballClub.rank[0]}}</td>
-                <td class="text-center">{{footballClub.rank[1]}}</td>
+                <td class="text-center">1</td>
+                <td class="text-center">2</td>
               </tr>
               </tbody>
             </table>
@@ -51,4 +49,5 @@
   </div>
 </div>
 <!-- END MAIN CONTENT-->
+
 

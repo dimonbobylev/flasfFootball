@@ -8,10 +8,13 @@
             <div *appIfNot="!isVisibleFootball">
               <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                 <li>
-                  <a href="#"><button class="btn-link"(click)="changeCategory(true)">Top Football Player</button></a>
+                  <a href="#"><button class="btn-link" (click)="buttonClick.emit('player')">Top Football Player</button></a>
                 </li>
                 <li>
-                  <a href="#"><button class="btn-link" (click)="changeCategory(false)">Top Football Club</button></a>
+                  <a href="#"><button class="btn-link" (click)="buttonClick.emit('club')">Top Football Club</button></a>
+                </li>
+                <li>
+                  <a href="#"><button class="btn-link" (click)="buttonClick.emit('country')">Top Football Country</button></a>
                 </li>
               </ul>
             </div>

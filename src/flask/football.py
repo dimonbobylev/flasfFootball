@@ -4,61 +4,61 @@ footballClubs = {
         "id": "1",
         "club": "Bayern",
         "country": "Germany",
-        "rank": "134.000"
+        "rank": ["27.000", "134.000"]
     },
     {
         "id": "2",
         "club": "Real Madrid",
         "country": "Spain",
-        "rank": "127.000"
+        "rank": ["26.000", "127.000"]
     },
     {
         "id": "3",
         "club": "Manchester City",
         "country": "England",
-        "rank": "125.000"
+        "rank": ["35.000", "125.000"]
     },
     {
         "id": "4",
-        "club": "Barselona",
+        "club": "Barcelona",
         "country": "Spain",
-        "rank": "122.000"
+        "rank": ["20.000", "122.000"]
     },
     {
         "id": "5",
         "club": "Juventus",
         "country": "Italy",
-        "rank": "120.000"
+        "rank": ["21.000", "120.000"]
     },
     {
         "id": "6",
         "club": "Atletico",
         "country": "Spain",
-        "rank": "115.000"
+        "rank": ["16.000", "115.000"]
     },
     {
         "id": "7",
         "club": "PSG",
         "country": "France",
-        "rank": "113.000"
+        "rank": ["24.000", "113.000"]
     },
         {
         "id": "8",
         "club": "Manchester United",
         "country": "England",
-        "rank": "112.000"
+        "rank": ["25.000", "112.000"]
     },
         {
         "id": "9",
         "club": "Liverpool",
         "country": "England",
-        "rank": "101.000"
+        "rank": ["24.000", "101.000"]
         },
         {
         "id": "10",
         "club": "Arsenal",
         "country": "England",
-        "rank": "99.000"
+        "rank": ["23.000", "99.000"]
         },
     ]
 }
@@ -67,7 +67,7 @@ footballPlayers = {
     "football": [
     {
         "name": "Messi",
-        "club": "Barselona",
+        "club": "Barcelona",
         "country": "Argentina",
         "number": "10",
         "position": "striker",
@@ -91,7 +91,7 @@ footballPlayers = {
     },
         {
         "name": "Frankie de Jong",
-        "club": "Barselona",
+        "club": "Barcelona",
         "country": "Netherlands",
         "number": "21",
         "position": "midfielder",

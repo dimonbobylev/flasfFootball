@@ -13,18 +13,28 @@ export class AppComponent implements OnInit {
   search = '';
   isVisibleFootballClub = false;
   isVisibleFootballPlayers = true;
+  isVisibleFootballCountrys = false;
 
   ngOnInit(): void {
   }
 
 
-  public onChange(isAdd: boolean): void {
-    if (isAdd) {
+  public onChange(isAdd: string): void {
+    if (isAdd=="player") {
       this.isVisibleFootballClub = false;
       this.isVisibleFootballPlayers = true;
-    } else {
+      this.isVisibleFootballCountrys = false;
+      console.log(this.isVisibleFootballPlayers);
+    }
+    if (isAdd=="club") {
       this.isVisibleFootballClub = true;
       this.isVisibleFootballPlayers = false;
+      this.isVisibleFootballCountrys = false;
+    }
+    if (isAdd=="country") {
+      this.isVisibleFootballClub = false;
+      this.isVisibleFootballPlayers = false;
+      this.isVisibleFootballCountrys = true;
     }
   }
 }

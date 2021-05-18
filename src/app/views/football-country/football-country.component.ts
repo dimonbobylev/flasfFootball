@@ -10,7 +10,7 @@ import {FuncService} from '../../Services/func.service';
 })
 export class FootballCountryComponent implements OnInit {
 
-  constructor(private rs: RestService, private getc: FuncService) {
+  constructor(private rs: RestService, private getFlag: FuncService) {
   }
 
   countrys: FootballCountry[] = [];
