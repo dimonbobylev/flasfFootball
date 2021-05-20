@@ -13,6 +13,11 @@ import {MenuComponent} from './views/menu/menu.component';
 import { FootballClubComponent } from './views/football-club/football-club.component';
 import { FilterClubsPipe } from './pipes/filter-clubs.pipe';
 import { FootballCountryTopComponent } from './views/football-country-top/football-country-top.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatTableModule} from '@angular/material/table';
+import {MatSortModule} from '@angular/material/sort';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -29,7 +34,12 @@ import { FootballCountryTopComponent } from './views/football-country-top/footba
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule,
+    MatFormFieldModule
   ],
   providers: [RestService],
   bootstrap: [AppComponent]

@@ -2,6 +2,7 @@ import {Injectable, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {FootballPlayers} from '../FootballPlayer';
 import {FootballClubs} from '../FootballClubs';
+import {FootballCountriesTop} from '../FootballCoutriesTop';
 
 
 @Injectable({
@@ -15,6 +16,7 @@ export class RestService implements OnInit {
   FootballPlayersUrl = 'http://127.0.0.1:5000/footballReport/';
   FootballCountryUrl = 'http://127.0.0.1:5000/footballCountry/';
   FootballClubsUrl = 'http://127.0.0.1:5000/footballClub/';
+  FootballCountriesTop = 'http://127.0.0.1:5000/footballCountriesTop/';
 
   // tslint:disable-next-line:contextual-lifecycle typedef
   ngOnInit() {
@@ -26,6 +28,9 @@ export class RestService implements OnInit {
   }
   readFootballClubs() {
     return this.http.get<FootballClubs[]>(this.FootballClubsUrl);
+  }
+  readFootballCountriesTop() {
+    return this.http.get<FootballCountriesTop[]>(this.FootballCountriesTop);
   }
 
   readFootballCountry() {

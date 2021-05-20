@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
   search = '';
   isVisibleFootballClub = false;
   isVisibleFootballPlayers = true;
-  isVisibleFootballCountrys = false;
+  isVisibleFootballCountries = false;
 
   ngOnInit(): void {
   }
@@ -23,18 +23,18 @@ export class AppComponent implements OnInit {
     if (isAdd=="player") {
       this.isVisibleFootballClub = false;
       this.isVisibleFootballPlayers = true;
-      this.isVisibleFootballCountrys = false;
+      this.isVisibleFootballCountries = false;
       console.log(this.isVisibleFootballPlayers);
     }
     if (isAdd=="club") {
       this.isVisibleFootballClub = true;
       this.isVisibleFootballPlayers = false;
-      this.isVisibleFootballCountrys = false;
+      this.isVisibleFootballCountries = false;
     }
     if (isAdd=="country") {
       this.isVisibleFootballClub = false;
       this.isVisibleFootballPlayers = false;
-      this.isVisibleFootballCountrys = true;
+      this.isVisibleFootballCountries = true;
     }
   }
 }

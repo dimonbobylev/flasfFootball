@@ -32,7 +32,6 @@ export class FuncService {
     if (clubName == 'Real Madrid') {
       this.clubLogo = 'https://football-fun.ru/uploads/teams/real-madrid-1-image-_x28.png';
     }
-
     if (clubName == 'Bayern') {
       this.clubLogo = 'https://football-fun.ru/uploads/teams/bavariya-image-_x28.png';
     }
@@ -51,31 +50,40 @@ export class FuncService {
   getCountryFlag(CountryFlag): string {
     this.CountryFlag = "";
     if (CountryFlag == 'Brazil') {
-      this.CountryFlag = 'https://football-fun.ru/uploads/1/countries/flags/brazil-image-_x28.png';
+      this.CountryFlag = 'assets/icon/br.png';
     }
     if (CountryFlag == 'Argentina') {
-      this.CountryFlag = 'https://football-fun.ru/uploads/1/countries/flags/argentina-image-_x28.png';
+      this.CountryFlag = 'assets/icon/ar.png';
     }
     if (CountryFlag == 'Netherlands') {
-      this.CountryFlag = 'https://football-fun.ru/uploads/1/countries/flags/netherlands-image-_x28.png';
+      this.CountryFlag = 'assets/icon/nl.png';
     }
     if (CountryFlag == 'Portugal') {
-      this.CountryFlag = "https://football-fun.ru/uploads/1/countries/flags/portugal-image-_x28.png";
+      this.CountryFlag = "assets/icon/pt.png";
     }
     if (CountryFlag == 'England') {
-      this.CountryFlag = "assets/icon/flag-of-england.jpg";
+      this.CountryFlag = "assets/icon/gb-eng.png";
     }
     if (CountryFlag == 'Spain') {
-      this.CountryFlag = "assets/icon/spain-flag.png";
+      this.CountryFlag = "assets/icon/es.png";
     }
     if (CountryFlag == 'Germany') {
-      this.CountryFlag = "https://football-fun.ru/uploads/1/countries/flags/germany-image-_x28.png";
+      this.CountryFlag = "assets/icon/de.png";
     }
     if (CountryFlag == 'France') {
-      this.CountryFlag = "assets/icon/flag-franczii.jpg";
+      this.CountryFlag = "assets/icon/fr.png";
     }
     if (CountryFlag == 'Italy') {
-      this.CountryFlag = "assets/icon/Flag_of_the_Italian.png";
+      this.CountryFlag = "assets/icon/it.png";
+    }
+    if (CountryFlag == 'Russia') {
+      this.CountryFlag = "assets/icon/ru.png";
+    }
+    if (CountryFlag == 'Austria') {
+      this.CountryFlag = "assets/icon/at.png";
+    }
+    if (CountryFlag == 'Belgium') {
+      this.CountryFlag = "assets/icon/be.png";
     }
     return this.CountryFlag;
   }

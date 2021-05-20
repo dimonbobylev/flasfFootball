@@ -24,6 +24,10 @@ def FootballReport():
 def FootballClub():
     return jsonify([football.footballClubs])   # возвращаем словарь footballClubs из файла football.py
 
+@app.route("/footballCountriesTop/", methods = ['GET'])
+def FootballCountriesTop():
+    return jsonify([football.footballCountries])   # возвращаем словарь footballCountries из файла football.py
+
 
 @app.route("/footballCountry/", methods = ['GET'])
 def FootballCountry():
