@@ -49,42 +49,7 @@ export class FuncService {
 
   getCountryFlag(CountryFlag): string {
     this.CountryFlag = "";
-    if (CountryFlag == 'Brazil') {
-      this.CountryFlag = 'assets/icon/br.png';
-    }
-    if (CountryFlag == 'Argentina') {
-      this.CountryFlag = 'assets/icon/ar.png';
-    }
-    if (CountryFlag == 'Netherlands') {
-      this.CountryFlag = 'assets/icon/nl.png';
-    }
-    if (CountryFlag == 'Portugal') {
-      this.CountryFlag = "assets/icon/pt.png";
-    }
-    if (CountryFlag == 'England') {
-      this.CountryFlag = "assets/icon/gb-eng.png";
-    }
-    if (CountryFlag == 'Spain') {
-      this.CountryFlag = "assets/icon/es.png";
-    }
-    if (CountryFlag == 'Germany') {
-      this.CountryFlag = "assets/icon/de.png";
-    }
-    if (CountryFlag == 'France') {
-      this.CountryFlag = "assets/icon/fr.png";
-    }
-    if (CountryFlag == 'Italy') {
-      this.CountryFlag = "assets/icon/it.png";
-    }
-    if (CountryFlag == 'Russia') {
-      this.CountryFlag = "assets/icon/ru.png";
-    }
-    if (CountryFlag == 'Austria') {
-      this.CountryFlag = "assets/icon/at.png";
-    }
-    if (CountryFlag == 'Belgium') {
-      this.CountryFlag = "assets/icon/be.png";
-    }
+    this.CountryFlag = "assets/icon/"+CountryFlag+".png";
     return this.CountryFlag;
   }
 

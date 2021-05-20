@@ -26,8 +26,9 @@
       </div>
     </header>
     <!-- HEADER DESKTOP-->
-    <app-football-players *ngIf="isVisibleFootballPlayers" [search]="search"></app-football-players> <!-- Передача данных в app-football-players-->
-    <app-football-club *ngIf="isVisibleFootballClub" [search]="search"></app-football-club>
+    <app-football-players *ngIf="isVisibleFootballPlayers"></app-football-players>
+    <app-football-club *ngIf="isVisibleFootballClub"></app-football-club>
+<!--    <app-football-club *ngIf="isVisibleFootballClub" [search]="search"></app-football-club> &lt;!&ndash; Передача данных в app-football-players&ndash;&gt;-->
     <app-football-country-top *ngIf="isVisibleFootballCountries"></app-football-country-top>
     <!-- END PAGE CONTAINER-->
   </div>

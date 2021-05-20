@@ -1,20 +1,22 @@
 export class FootballPlayers
 {
+  id: number;
   name: string;
   club: string;
   country: string;
-  number: number;
+  age: number;
   position: string;
-  statistics: number;
+  millions: number;
 
 
-  constructor(name, club, country, number, position, statistics)
+  constructor(id,name, club, country, age, position, millions)
   {
+    this.id = id;
     this.name = name;
     this.club = club;
     this.country = country;
-    this.number = number;
+    this.age = age;
     this.position = position;
-    this.statistics = statistics;
+    this.millions = millions;
   }
 }

@@ -6,40 +6,98 @@
         <div class="col-lg-12">
           <h2 class="title-1 m-b-25">The best football players of Europe</h2>
           <div class="table-responsive table--no-card m-b-40">
-            <table class="table table-borderless table-striped table-earning">
-              <thead>
-              <tr>
-                <th class="text-left">№</th>
-                <th class="text-left">Name</th>
-                <th class="text-left">Position</th>
-                <th class="text-left">Country</th>
-                <th class="text-left">Club</th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr *ngFor="let footballPlayer of footballPlayers | filter: search; let i=index">
-                <td class="text-left">{{i + 1}}</td>
-                <td class="text-left">{{footballPlayer.name}}</td>
-                <td class="text-left">{{footballPlayer.position}}</td>
-                <td class="text-left">
+            <mat-form-field>
+              <mat-label>Filter</mat-label>
+              <input matInput (keyup)="applyFilter($event)" placeholder="search" #input>
+            </mat-form-field>
+            <table mat-table
+                   matSort [dataSource]="dataSource"
+                   class="table table-borderless table-striped table-earning"
+            >
+              <ng-container matColumnDef="id">
+                <th *matHeaderCellDef mat-header-cell mat-sort-header class="text-left"> ID </th>
+                <td *matCellDef="let element" mat-cell class="text-left">{{element.id}}</td>
+              </ng-container>
+              <ng-container matColumnDef="name">
+                <th *matHeaderCellDef mat-header-cell class="text-left"> Name </th>
+                <td *matCellDef="let element" mat-cell class="text-left">{{element.name}}</td>
+              </ng-container>
+              <!-- Name Column -->
+              <ng-container matColumnDef="club">
+                <th mat-header-cell *matHeaderCellDef> Club </th>
+                <td mat-cell *matCellDef="let element" class="text-left">
                   <a href="#">
                     <div>
-                      <img src="{{getFlag.getCountryFlag(footballPlayer.country)}}" height="50" width="30"/>
-                      <span> {{footballPlayer.country}}</span>
+                      <img src="{{getFlag.getClubLogo(element.club)}}">
+                      <span> {{element.club}}</span>
                     </div>
                   </a>
                 </td>
-                <td class="text-left">
+              </ng-container>
+              <ng-container matColumnDef="country">
+                <th mat-header-cell *matHeaderCellDef> Country </th>
+                <td mat-cell *matCellDef="let element" class="text-left">
                   <a href="#">
                     <div>
-                      <img src="{{getFlag.getClubLogo(footballPlayer.club)}}">
-                      <span> {{footballPlayer.club}}</span>
+                      <img src="{{getFlag.getCountryFlag(element.country)}}" height="50" width="30">
+                      <span> {{element.country.toUpperCase()}}</span>
                     </div>
                   </a>
                 </td>
-              </tr>
-              </tbody>
+              </ng-container>
+
+              <ng-container matColumnDef="age">
+                <th mat-header-cell mat-sort-header *matHeaderCellDef> age </th>
+                <td mat-cell *matCellDef="let element"> {{element.age}} </td>
+              </ng-container>
+              <ng-container matColumnDef="position">
+                <th mat-header-cell *matHeaderCellDef class="text-center"> position </th>
+                <td mat-cell *matCellDef="let element" class="text-left"> {{element.position}} </td>
+              </ng-container>
+              <ng-container matColumnDef="millions">
+                <th mat-header-cell mat-sort-header *matHeaderCellDef class="text-center"> Million € </th>
+                <td mat-cell *matCellDef="let element" class="text-left">
+                  <span [ngClass]="element.millions >= 150.0 ? 'red': 'green'">{{element.millions}}</span>
+                </td>
+              </ng-container>
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
             </table>
+            <mat-paginator [pageSizeOptions]="[10, 20, 50]" showFirstLastButtons></mat-paginator>
+<!--            <table class="table table-borderless table-striped table-earning">-->
+<!--              <thead>-->
+<!--              <tr>-->
+<!--                <th class="text-left">№</th>-->
+<!--                <th class="text-left">Name</th>-->
+<!--                <th class="text-left">Position</th>-->
+<!--                <th class="text-left">Country</th>-->
+<!--                <th class="text-left">Club</th>-->
+<!--              </tr>-->
+<!--              </thead>-->
+<!--              <tbody>-->
+<!--              <tr *ngFor="let footballPlayer of footballPlayers | filter: search; let i=index">-->
+<!--                <td class="text-left">{{i + 1}}</td>-->
+<!--                <td class="text-left">{{footballPlayer.name}}</td>-->
+<!--                <td class="text-left">{{footballPlayer.position}}</td>-->
+<!--                <td class="text-left">-->
+<!--                  <a href="#">-->
+<!--                    <div>-->
+<!--                      <img src="{{getFlag.getCountryFlag(footballPlayer.country)}}" height="50" width="30"/>-->
+<!--                      <span> {{footballPlayer.country}}</span>-->
+<!--                    </div>-->
+<!--                  </a>-->
+<!--                </td>-->
+<!--                <td class="text-left">-->
+<!--                  <a href="#">-->
+<!--                    <div>-->
+<!--                      <img src="{{getFlag.getClubLogo(footballPlayer.club)}}">-->
+<!--                      <span> {{footballPlayer.club}}</span>-->
+<!--                    </div>-->
+<!--                  </a>-->
+<!--                </td>-->
+<!--              </tr>-->
+<!--              </tbody>-->
+<!--            </table>-->
           </div>
         </div>
 <!--        <div class="col-lg-4">-->

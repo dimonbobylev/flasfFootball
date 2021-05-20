@@ -4,7 +4,7 @@ import {FuncService} from '../../Services/func.service';
 import {FootballCountriesTop} from '../../FootballCoutriesTop';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
-import {MatSort, Sort} from '@angular/material/sort';
+import {MatSort} from '@angular/material/sort';
 
 
 @Component({

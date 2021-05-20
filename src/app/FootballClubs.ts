@@ -3,14 +3,16 @@ export class FootballClubs
   id: number;
   club: string;
   country: string;
-  rank: number;
+  r2021: number;
+  total: number;
 
 
-  constructor(id, club, country, rank)
+  constructor(id, club, country, r2021, total)
   {
     this.id = id;
     this.club = club;
     this.country = country;
-    this.rank = rank;
+    this.r2021 = r2021;
+    this.total = total;
   }
 }
