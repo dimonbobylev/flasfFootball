@@ -1,0 +1,26 @@
+.btn-up {
+  /*	background: url("/up-arrow.png") no-repeat top left;
+    background-color: #b3b3f3;*/
+  opacity: 0.5;
+  height: 60px;
+  width: 60px;
+  bottom: 30px;
+  right: 30px;
+  cursor: pointer;
+  /*	display: none;*/
+  position: fixed;
+  z-index: 999;
+}
+.un-btn-up {
+  opacity: 0.0;
+  height: 60px;
+  width: 60px;
+  bottom: 30px;
+  right: 30px;
+  cursor: pointer;
+  position: fixed;
+  z-index: 999;
+}
+.btn-opacity {
+  opacity: 1.0;
+}

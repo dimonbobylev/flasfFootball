@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
 
 
 @Component({
@@ -8,12 +8,21 @@ import {Component, OnInit} from '@angular/core';
 })
 export class AppComponent implements OnInit {
 
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll($event) {
+    console.log('scroll');
+    this.onScroll();
+  }
+
+  @ViewChild('scrollMe') private myScrollContainer: ElementRef;
   constructor() {
   }
   search = '';
   isVisibleFootballClub = false;
   isVisibleFootballPlayers = true;
   isVisibleFootballCountries = false;
+  isVisibleButtonUp = false;
+
 
   ngOnInit(): void {
   }
@@ -35,6 +44,24 @@ export class AppComponent implements OnInit {
       this.isVisibleFootballClub = false;
       this.isVisibleFootballPlayers = false;
       this.isVisibleFootballCountries = true;
+    }
+  }
+
+  jumpUp() {
+    let counter = 0;
+    const intervalId = setInterval(() => {
+      window.scrollBy(0,-5);
+      counter += 1;
+      if (document.documentElement.scrollTop === 0) {
+        clearInterval(intervalId);
+      }
+    }, 50);
+  }
+  onScroll() {
+    if(document.documentElement.scrollTop > 101) {
+      this.isVisibleButtonUp = true;
+    } else {
+      this.isVisibleButtonUp = false;
     }
   }
 }

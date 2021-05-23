@@ -9,7 +9,7 @@
   </aside>
   <!-- END MENU SIDEBAR-->
   <!-- PAGE CONTAINER-->
-  <div class="page-container">
+  <div class="page-container" #scrollMe (scroll)="onScroll()">
     <!-- HEADER DESKTOP-->
     <header class="header-desktop">
       <div class="section__content section__content--p30">
@@ -30,6 +30,14 @@
     <app-football-club *ngIf="isVisibleFootballClub"></app-football-club>
 <!--    <app-football-club *ngIf="isVisibleFootballClub" [search]="search"></app-football-club> &lt;!&ndash; Передача данных в app-football-players&ndash;&gt;-->
     <app-football-country-top *ngIf="isVisibleFootballCountries"></app-football-country-top>
+    <div *ngIf="isVisibleButtonUp; else unBtnUp" class="btn-up">
+      <button (click)="jumpUp()"><img src="assets/icon/up.png" height="50" width="30"></button>
+    </div>
+    <ng-template #unBtnUp>
+      <div class="un-btn-up">
+        <button (click)="jumpUp()"><img src="assets/icon/up.png" height="50" width="30"></button>
+      </div>
+    </ng-template>
     <!-- END PAGE CONTAINER-->
   </div>
 

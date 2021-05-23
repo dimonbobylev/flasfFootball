@@ -52,6 +52,5 @@ export class FuncService {
     this.CountryFlag = "assets/icon/"+CountryFlag+".png";
     return this.CountryFlag;
   }
-
 }
 
