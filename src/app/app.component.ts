@@ -1,4 +1,5 @@
 import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
+import {ClubCheck} from './ClubCheck';
 
 
 @Component({
@@ -10,7 +11,6 @@ export class AppComponent implements OnInit {
 
   @HostListener('window:scroll', ['$event'])
   onWindowScroll($event) {
-    console.log('scroll');
     this.onScroll();
   }
 
@@ -22,7 +22,9 @@ export class AppComponent implements OnInit {
   isVisibleFootballPlayers = true;
   isVisibleFootballCountries = false;
   isVisibleButtonUp = false;
-
+  nameClub: ClubCheck;
+  clubMy = "";
+  checkAll = [];
 
   ngOnInit(): void {
   }
@@ -33,9 +35,9 @@ export class AppComponent implements OnInit {
       this.isVisibleFootballClub = false;
       this.isVisibleFootballPlayers = true;
       this.isVisibleFootballCountries = false;
-      console.log(this.isVisibleFootballPlayers);
-    }
+     }
     if (isAdd=="club") {
+      this.checkAll = [];  // очистка массива клубов
       this.isVisibleFootballClub = true;
       this.isVisibleFootballPlayers = false;
       this.isVisibleFootballCountries = false;
@@ -47,7 +49,7 @@ export class AppComponent implements OnInit {
     }
   }
 
-  jumpUp() {
+  jumpUp() {  //  при нажатии на кнопку ВВЕРХ - подъем в начало
     let counter = 0;
     const intervalId = setInterval(() => {
       window.scrollBy(0,-5);
@@ -57,11 +59,21 @@ export class AppComponent implements OnInit {
       }
     }, 50);
   }
-  onScroll() {
+  onScroll() {  //  отображение или скрытие кнопки ВВЕРХ
     if(document.documentElement.scrollTop > 101) {
       this.isVisibleButtonUp = true;
     } else {
       this.isVisibleButtonUp = false;
     }
+  }
+  onChoice(chClub: ClubCheck) {
+    this.nameClub = chClub;
+    this.clubMy = chClub.name;
+    // console.log(this.nameClub);
+  }
+
+  filterClubs(ch: ClubCheck) {
+    // console.log("filterClubs" + ch.name)
+    this.checkAll.unshift(ch);
   }
 }

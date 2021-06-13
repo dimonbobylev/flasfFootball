@@ -12,13 +12,13 @@
             <div *appIfNot="!isVisibleFootball">
               <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                 <li>
-                  <a href="#"><button class="btn-link" (click)="buttonClick.emit('player')">Top Football Players</button></a>
+                  <a href="#"><button class="btn-link" (click)="buttonClick.emit('player'); btnFilter('player')">Top Football Players</button></a>
                 </li>
                 <li>
-                  <a href="#"><button class="btn-link" (click)="buttonClick.emit('club')">Top Football Clubs</button></a>
+                  <a href="#"><button class="btn-link" (click)="buttonClick.emit('club'); btnFilter('club')">Top Football Clubs</button></a>
                 </li>
                 <li>
-                  <a href="#"><button class="btn-link" (click)="buttonClick.emit('country')">Top Football Countries</button></a>
+                  <a href="#"><button class="btn-link" (click)="buttonClick.emit('country'); btnFilter('country')">Top Football Countries</button></a>
                 </li>
               </ul>
             </div>
@@ -40,6 +40,72 @@
         </div>
       </li>
     </ul>
+    <div *ngIf="filterPlayers">
+      <h2>Filters player:</h2>
+      <hr>
+      <div class="b7n">
+        <div class="b7n1">Стоимость&nbsp;</div>
+        <div class="_3qaI _597t">
+          <div class="alVS"></div>
+          <div class="_3D59" style="width: 100%; left: 0%;"></div>
+          <input id="range1" type="range" min="1" max="50" step="1" onchange="textbox1.value = range1.value" value="1" class="_2ya8">
+          <input id="range2" type="range" min="51" max="100" step="1" onchange="textbox2.value = range2.value" value="100" class="_2ya8">
+        </div>
+
+
+        <div class="_597t">
+          <div class="_3tp2">
+            <div class="_1FCZ">
+              <input id="textbox1" type="text" onchange="range1.value = textbox1.value" class="_16XE" value="1">
+              <p class="_2YTg">от</p>
+            </div>
+          </div>
+          <div class="_3tp2">
+            <div class="_1FCZ">
+              <input id="textbox2" type="text" onchange="range2.value = textbox2.value" class="_16XE" value="100">
+              <p class="_2YTg">до</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <hr>
+    </div>
+    <div *ngIf="filterClub">
+      <h2>Filters club:</h2>
+      <ul>
+        <li *ngFor="let nameClub of allClub">
+          <mat-checkbox [(ngModel)]="nameClub.completed"
+                        [color]="nameClub.color"
+                        (ngModelChange)="updateAllComplete()">
+            {{nameClub.name}}
+          </mat-checkbox>
+        </li>
+      </ul>
+    </div>
+    <div *ngIf="filterCountry">
+      <hr>
+      <h2>Filters country:</h2>
+      <div class="sidebar-block" data-sidebar-block="true" data-filter-interaction="" data-filter="galleryScript">
+        <p class="sidebar-block-title text-uppercase">Страны</p>
+        <div class="sidebar-list sidebar-list_multiselect">
+          <a class="sidebar-link sidebar-link_filter " href="#" rel="nofollow">Англия</a>
+          <a class="sidebar-link sidebar-link_filter " href="#" rel="nofollow">Германия</a>
+        </div>
+      </div>
+      <hr>
+
+      <form class="filter-form">
+        <div class="filter-form-input-wrapper">
+        <input type="number" class="input filter-form-input" name="price-from" value="0" min="0" max="0" area-label="Цена from">
+        </div>
+        <span class="filter-form-dash"></span>
+        <div class="filter-form-input-wrapper">
+          <input type="number" class="input filter-form-input" name="price-to" value="0" max="0" min="0" area-label="Цена to">
+        </div>
+        <button type="submit" class="btn btn_5 filter-form-submit text-uppercase">Ок</button>
+      </form>
+    </div>
   </nav>
 </div>
 <!-- END MENU SIDEBAR-->

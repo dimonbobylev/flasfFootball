@@ -1,4 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {ClubCheck} from '../../ClubCheck';
+import {FuncService} from '../../Services/func.service';
 
 
 @Component({
@@ -8,20 +10,57 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  // @Output() buttonClick = new EventEmitter<boolean>();
   @Input() choice: string;
+  @Input() allClub: ClubCheck[];
   @Output() buttonClick = new EventEmitter();
+  @Output() updateTask: EventEmitter<ClubCheck> = new EventEmitter<ClubCheck>();
 
-  constructor() {
-  }
+
   isVisibleFootball = false;
   isVisibleHockey = false;
-
-  ngOnInit(): void {
-
+  filterClub = false;
+  filterPlayers = false;
+  filterCountry = false;
+  constructor(private getClubs: FuncService) {
   }
 
-  // public changeCategory(change: boolean): void {
-  //   this.buttonClick.emit(change);
+
+  ngOnInit(): void {
+  }
+
+  updateAllComplete() {
+    for(let j in this.allClub) {
+      if(this.allClub[j].completed ===true) {
+        this.updateTask.emit(this.allClub[j]);
+      }
+      // console.log(this.allClub[j].name + this.allClub[j].completed)
+    }
+    this.getClubs.getCheckClubs(this.allClub);
+  }
+
+  public changeCategory = (change: boolean): void => {
+    this.buttonClick.emit(change);
+  };
+
+  btnFilter(nameCategory) {
+    if(nameCategory === 'club') {
+      this.filterClub = true;
+      this.filterPlayers = false;
+      this.filterCountry = false;
+    }
+    if(nameCategory === 'player') {
+      this.filterClub = false;
+      this.filterPlayers = true;
+      this.filterCountry = false;
+    }
+    if(nameCategory === 'country') {
+      this.filterClub = false;
+      this.filterPlayers = false;
+      this.filterCountry = true;
+    }
+  }
+
+  // showCheckClubs() {
+  //   console.log("checkClub " + this.allClub);
   // }
 }

@@ -1,10 +1,11 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, EventEmitter, Input, OnChanges, OnInit, Output, ViewChild} from '@angular/core';
 import {RestService} from '../../Services/rest.service';
 import {FuncService} from '../../Services/func.service';
 import {FootballClubs} from '../../FootballClubs';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
+import {ClubCheck} from '../../ClubCheck';
 
 
 @Component({
@@ -18,8 +19,14 @@ export class FootballClubComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['id', 'club', 'country', 'r2021', 'total', 'millions'];
   dataSource: MatTableDataSource<FootballClubs>; // контейнер - источник данных для таблицы
   footballClubs: FootballClubs[] = [];
+  newFootballClubs: FootballClubs[] = [];
+  checkClub: ClubCheck[] = [];
+  newCheck: ClubCheck[] = [];
+  chek = false;
 
+  @Input() myClub: ClubCheck;  // принимаем название клуба после клика по CheckBox
 
+  @Output() allClub: EventEmitter<ClubCheck> = new EventEmitter<ClubCheck>();  // выдаем полный список клубов в app-component
   // ссылки на компоненты таблицы
   @ViewChild(MatPaginator, {static: false}) private paginator: MatPaginator;
   @ViewChild(MatSort, {static: false}) private sort: MatSort;
@@ -29,7 +36,6 @@ export class FootballClubComponent implements OnInit, AfterViewInit {
   }
 
 
-
   ngOnInit(): void {
     this.rs.readFootballClubs()
       .subscribe
@@ -37,12 +43,23 @@ export class FootballClubComponent implements OnInit, AfterViewInit {
         (response) => {
           this.footballClubs = response[0]['clubs'];
           this.dataSource.data = response[0]['clubs'];
+          for (let ch of this.footballClubs) {
+            this.checkClub.unshift({name: ch.club, completed: false, color: 'primary'})
+            this.allClub.emit({name: ch.club, completed: false, color: 'primary'});
+          }
         },
         (error) => {
           console.log('No Data Found' + error);
         }
       );
+    this.getFlag.clubsSubject.subscribe((res)=>{
+      this.newCheck = res;
+      this.checkClubs(this.newCheck);
+      this.chek = true;
+      // console.log("res!!! " + res);
+    })
   }
+
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort; // компонент для сортировки данных (если необходимо)
     this.dataSource.paginator = this.paginator; // обновить компонент постраничности (кол-во записей, страниц)
@@ -56,4 +73,16 @@ export class FootballClubComponent implements OnInit, AfterViewInit {
     }
   }
 
+  checkClubs(clubs) {
+    console.log("checkClubs" + clubs.length);
+
+    for (let i=0; i<clubs.length; i++) {
+      console.log(clubs[i].name);
+    }
+    // this.dataSource.data = this.newFootballClubs;
+  }
+
+  // private doSomething(myClub: ClubCheck) {
+  //   console.log("doSomething = " + myClub);
+  // }
 }

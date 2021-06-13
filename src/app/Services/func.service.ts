@@ -1,4 +1,7 @@
 import {Injectable} from '@angular/core';
+import {Subject} from 'rxjs';
+import {ClubCheck} from '../ClubCheck';
+
 
 @Injectable({
   providedIn: 'root'
@@ -7,10 +10,18 @@ export class FuncService {
 
   constructor() {
   }
-
+  clubsSubject = new Subject<ClubCheck[]>();
   clubLogo = '';
   CountryFlag = '';
 
+
+  getCheckClubs(checkClub: ClubCheck[]){
+    const clubs = checkClub.filter(club => club.completed === true);
+    // for(let j in clubs) {
+    //   console.log(clubs[j].name)
+    // }
+    this.clubsSubject.next(clubs);
+  }
 
   getClubLogo(clubName): string {
     this.clubLogo = "";

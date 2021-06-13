@@ -64,7 +64,27 @@
           </div>
         </div>
       </div>
+<!--      <div *ngIf="newCheck">-->
+<!--        <div *ngFor="let c of newCheck">-->
+<!--          <div>{{c.name}}</div>-->
+<!--&lt;!&ndash;          <pre>{{c | json}}</pre>&ndash;&gt;-->
+<!--        </div>-->
+<!--      </div>-->
+      <hr>
+      <div *ngIf="chek; else qwer">
+        <div *ngFor="let c of footballClubs">
+          <div *ngFor="let cn of newCheck">
+            <div *ngIf="c.club==cn.name">
+              <div>{{c.club}} | {{c.country}}</div>
+            </div>
+          </div>
+        </div>
     </div>
+      <ng-template #qwer>
+        <div *ngFor="let c of footballClubs">
+               <div>{{c.club}} | {{c.country}}</div>
+        </div>
+      </ng-template>
   </div>
 </div>
 <!-- END MAIN CONTENT-->

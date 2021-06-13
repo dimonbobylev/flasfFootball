@@ -5,7 +5,8 @@
         <img src="assets/icon/logo.png" alt="Cool Admin" />
       </a>
     </div>
-    <app-menu (buttonClick)="onChange($event)"></app-menu>
+    <app-menu (buttonClick)="onChange($event)" (updateTask)="onChoice($event)" [allClub]="checkAll"></app-menu>
+<!--    <div *ngIf="nameClub">{{nameClub.name}}</div>-->
   </aside>
   <!-- END MENU SIDEBAR-->
   <!-- PAGE CONTAINER-->
@@ -15,7 +16,7 @@
       <div class="section__content section__content--p30">
         <div class="container-fluid">
           <div class="header-wrap">
-            <form class="form-header" action="" method="POST">
+            <form class="form-header" action="">
               <input [(ngModel)]="search" class="au-input au-input--xl" type="text" name="search" placeholder="Search for club or country" />
               <button class="au-btn--submit" type="submit">
                 <i class="zmdi zmdi-search"></i>
@@ -27,18 +28,21 @@
     </header>
     <!-- HEADER DESKTOP-->
     <app-football-players *ngIf="isVisibleFootballPlayers"></app-football-players>
-    <app-football-club *ngIf="isVisibleFootballClub"></app-football-club>
+    <app-football-club *ngIf="isVisibleFootballClub" [myClub]="nameClub" (allClub)="filterClubs($event)"></app-football-club>
 <!--    <app-football-club *ngIf="isVisibleFootballClub" [search]="search"></app-football-club> &lt;!&ndash; Передача данных в app-football-players&ndash;&gt;-->
     <app-football-country-top *ngIf="isVisibleFootballCountries"></app-football-country-top>
-    <div *ngIf="isVisibleButtonUp; else unBtnUp" class="btn-up">
-      <button (click)="jumpUp()"><img src="assets/icon/up.png" height="50" width="30"></button>
-    </div>
-    <ng-template #unBtnUp>
-      <div class="un-btn-up">
-        <button (click)="jumpUp()"><img src="assets/icon/up.png" height="50" width="30"></button>
-      </div>
-    </ng-template>
+<!--    <div *ngIf="isVisibleButtonUp; else unBtnUp" class="btn-up">-->
+<!--      <button (click)="jumpUp()"><img src="assets/icon/up.png" height="50" width="30"></button>-->
+<!--    </div>-->
+<!--    <ng-template #unBtnUp>-->
+<!--      <div class="un-btn-up">-->
+<!--        <button (click)="jumpUp()"><img src="assets/icon/up.png" height="50" width="30"></button>-->
+<!--      </div>-->
+<!--    </ng-template>-->
+      <button (click)="jumpUp()" class="btn-up" [ngStyle]="{opacity: isVisibleButtonUp ? '0.5' : '0'}"><img src="assets/icon/up.png" height="50" width="30"></button>
+
+<!--    <div>ALL</div>-->
+<!--    <div *ngFor="let cc of checkAll">{{cc.name}}</div>-->
     <!-- END PAGE CONTAINER-->
   </div>
-
 </div>
